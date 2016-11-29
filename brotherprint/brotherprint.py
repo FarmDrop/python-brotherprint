@@ -127,7 +127,7 @@ class BrotherPrint:
         '''Set cut setting for printer. 
         
         Args:
-            cut: The type of cut setting we want. Choices are 'full', 'half', 'chain', and 'special'.
+            cut: The type of cut setting we want. Choices are 'off' or 'full'.
         Returns:
             None
         Raises:
@@ -1046,5 +1046,22 @@ class BrotherPrint:
         '''
         self.select_obj(name)
         self.insert_into_obj(data)
-    
-    
+
+    def turn_off_cutter(self):
+        self.send('^CO0000')
+
+    def cut_after_every(self, number_of_labels):
+        auto_cut = '1'
+        cut_at_end = '0'  # Will cut after each template if left on
+        self.send('^CO' + auto_cut + number_of_labels.zfill(2) + cut_at_end)
+
+    def reset_cutter(self):
+        '''Sets the cutter to the default, which is to cut after every label
+
+        Returns:
+            None
+        '''
+        auto_cut = '1'
+        auto_cut_after_label_number = '01'
+        cut_at_end = '1'
+        self.send('^CO' + auto_cut + auto_cut_after_label_number + cut_at_end)
