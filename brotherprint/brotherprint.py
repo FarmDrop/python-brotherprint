@@ -1065,3 +1065,6 @@ class BrotherPrint:
         auto_cut_after_label_number = '01'
         cut_at_end = '1'
         self.send('^CO' + auto_cut + auto_cut_after_label_number + cut_at_end)
+
+    def cut(self):
+        self.send('^OP3')
