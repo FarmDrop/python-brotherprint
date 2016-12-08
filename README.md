@@ -10,6 +10,8 @@ This was developed for the QL-580N but I've heard it also works for the followin
 
 * QL-720NW
 
+Not working pn Python 3.x, so stick to Python 2.x
+
 Installation
 ============
 
