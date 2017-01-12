@@ -324,7 +324,7 @@ class BrotherPrint:
             None
         Raises:
             None'''
-        self.fsocket.send(text)
+        self.fsocket.send(text.encode('utf-8'))
         
     def forward_feed(self, amount):
         '''Calling this function finishes input of the current line, then moves the vertical 
